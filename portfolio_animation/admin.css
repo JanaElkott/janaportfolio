@@ -1,0 +1,292 @@
+:root {
+    --sidebar-width: 260px;
+    --header-height: 70px;
+    --admin-bg: #0f0f0f;
+    --panel-bg: #1a1a1a;
+    --input-bg: #222;
+    --border: #333;
+    --primary: #818cf8;
+    --text: #eee;
+}
+
+body {
+    background-color: var(--admin-bg);
+    color: var(--text);
+    overflow: hidden;
+    /* App-like feel */
+    cursor: auto !important;
+    /* Fix disappearing cursor */
+}
+
+/* Override custom cursor globally in admin */
+* {
+    cursor: auto !important;
+}
+
+button,
+a,
+.nav-btn,
+input,
+.add-btn {
+    cursor: pointer !important;
+}
+
+/* Login */
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-overlay.hidden {
+    display: none;
+}
+
+.login-card {
+    background: var(--panel-bg);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border);
+    width: 300px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    color: white;
+    border-radius: 6px;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Layout */
+.admin-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--panel-bg);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.nav-btn {
+    width: 100%;
+    text-align: left;
+    padding: 15px 24px;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    background: rgba(129, 140, 248, 0.1);
+    color: var(--primary);
+    border-right: 3px solid var(--primary);
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.save-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.download-btn {
+    background: #333;
+    color: white;
+    border: 1px solid #444;
+}
+
+.reset-btn {
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    font-size: 0.8rem;
+}
+
+.view-site-link {
+    text-align: center;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--admin-bg);
+}
+
+.header-bar {
+    height: var(--header-height);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: var(--panel-bg);
+}
+
+.lang-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#lang-select {
+    padding: 8px;
+    background: var(--input-bg);
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.editor-area {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    padding: 12px;
+    color: white;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Array Items (Cards) */
+.array-list {
+    display: grid;
+    gap: 20px;
+}
+
+.array-item-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-btn {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px dashed var(--border);
+    color: var(--primary);
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background: rgba(129, 140, 248, 0.05);
+    border-color: var(--primary);
+}
+
+h4.section-subtitle {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    font-weight: 400;
+    color: var(--primary);
+}
